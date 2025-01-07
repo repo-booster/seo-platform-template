@@ -40,7 +40,8 @@ import {
   RocketLaunchIcon,
   ChatBubbleBottomCenterTextIcon,
   BoltIcon,
-  ChartPieIcon
+  ChartPieIcon,
+  GlobeAltIcon
 } from '@heroicons/vue/24/outline'
 
 const navigation = [
@@ -49,6 +50,7 @@ const navigation = [
   { name: 'Traffic Analytics', href: '/traffic-analytics', icon: ChartBarIcon },
   { name: 'Industry Traffic', href: '/niche-traffic', icon: ChartPieIcon },
   { name: 'Organic Traffic', href: '/organic-traffic', icon: SignalIcon },
+  { name: 'Market Explorer', href: '/market-explorer', icon: GlobeAltIcon },
   { name: 'Keyword Research', href: '/keyword-research', icon: MagnifyingGlassIcon },
   { name: 'Keyword Magic Tool', href: '/keyword-magic', icon: SparklesIcon },
   { name: 'Rank Booster', href: '/rank-booster', icon: RocketLaunchIcon },

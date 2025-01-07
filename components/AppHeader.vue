@@ -31,7 +31,7 @@
                     <a href="#" class="flex items-start p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                       <BookOpenIcon class="h-6 w-6 text-blue-600 dark:text-blue-400" />
                       <div class="ml-3">
-                        <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Blog</p>
+                        <a href="https://repo-booster.com/blog" class="text-sm font-medium text-gray-900 dark:text-gray-100">Blog</a>
                         <p class="text-xs text-gray-500">Latest industry insights</p>
                       </div>
                     </a>
@@ -192,7 +192,7 @@ const authModals = ref(null)
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 }
-</script>
+</script>222222222
 
 <style scoped>
 .group:hover .group-hover\:visible {
