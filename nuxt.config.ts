@@ -17,6 +17,13 @@ export default defineNuxtConfig({
     fallback: 'light'
   },
 
+  runtimeConfig: {
+    public: {
+      googleClientId: process.env.GOOGLE_CLIENT_ID,
+      googleRedirectUri: process.env.GOOGLE_REDIRECT_URI
+    }
+  },
+
   ui: {
     global: true,
   },

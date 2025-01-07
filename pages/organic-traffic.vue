@@ -3,7 +3,7 @@
     <!-- Header Section -->
     <div class="bg-white p-6 rounded-lg shadow">
       <h1 class="text-xl font-semibold mb-4">Organic Traffic Insights</h1>
-      <p class="text-gray-600 mb-4">An easy "not provided" keyword solution combining Google Analytics, Search Console and Semrush data</p>
+      <p class="text-gray-600 mb-4">An easy "not provided" keyword solution combining Google Analytics, Search Console and Repo-Booster data</p>
       
       <div class="flex space-x-4">
         <div class="flex-1">

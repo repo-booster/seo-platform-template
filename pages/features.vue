@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto">
       <h1 class="text-3xl font-bold mb-4">Repo-Booster Features</h1>
-      <p class="text-gray-600 mb-8">Start solving your marketing challenges today with 55+ tools and reports on Semrush.</p>
+      <p class="text-gray-600 mb-8">Start solving your marketing challenges today with 55+ tools and reports on Repo-Booster.</p>
       <button class="px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600">
         Get Started for Free
       </button>
@@ -37,7 +37,7 @@
 
     <!-- Bottom CTA -->
     <div class="bg-purple-100 rounded-lg p-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Get it all in one with Semrush</h2>
+      <h2 class="text-2xl font-bold mb-4">Get it all in one with Repo-Booster</h2>
       <button class="px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600">
         Get free trial
       </button>
