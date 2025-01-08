@@ -52,7 +52,10 @@
             </USelectMenu>
           </div>
 
-          <button class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+          <button
+            class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+            @click="analyzeTraffic"
+          >
             Analyze
           </button>
         </div>
@@ -61,8 +64,8 @@
         <div class="flex items-center space-x-4">
           <span class="text-sm text-gray-600 dark:text-gray-300">Time Range:</span>
           <div class="flex space-x-2">
-            <button 
-              v-for="range in timeRanges" 
+            <button
+              v-for="range in timeRanges"
               :key="range.value"
               @click="selectedTimeRange = range.value"
               class="px-3 py-1 text-sm rounded-md"
@@ -78,7 +81,7 @@
     </div>
 
     <!-- Traffic Overview -->
-    <div class="grid grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <MetricCard
         title="Total Traffic"
         value="2.4M"
@@ -123,12 +126,18 @@
             </tr>
           </thead>
           <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-            <tr v-for="source in trafficSources" :key="source.domain" class="hover:bg-gray-100 dark:hover:bg-gray-700">
+            <tr
+              v-for="source in trafficSources"
+              :key="source.domain"
+              class="hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
               <td class="px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-100">{{ source.domain }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-100">{{ source.share }}%</td>
               <td class="px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-100">{{ source.visits }}</td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <span :class="source.change > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'">
+                <span
+                  :class="source.change > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'"
+                >
                   {{ source.change > 0 ? '+' : '' }}{{ source.change }}%
                 </span>
               </td>
@@ -139,3 +148,39 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const regions = ref([
+  { name: 'North America', flag: 'flag-na' },
+  { name: 'Europe', flag: 'flag-eu' },
+  { name: 'Asia', flag: 'flag-asia' },
+]);
+
+const industries = ref([
+  { name: 'Technology', icon: 'TechIcon' },
+  { name: 'Healthcare', icon: 'HealthIcon' },
+  { name: 'Finance', icon: 'FinanceIcon' },
+]);
+
+const timeRanges = ref([
+  { label: 'Last 7 Days', value: '7d' },
+  { label: 'Last 30 Days', value: '30d' },
+  { label: 'Last 90 Days', value: '90d' },
+]);
+
+const trafficSources = ref([
+  { domain: 'example.com', share: 24.5, visits: '1.2M', change: 5.2 },
+  { domain: 'another-site.com', share: 18.2, visits: '850K', change: -3.8 },
+  { domain: 'third-site.org', share: 12.8, visits: '600K', change: 1.2 },
+]);
+
+const selectedRegion = ref(null);
+const selectedIndustry = ref(null);
+const selectedTimeRange = ref('7d');
+
+const analyzeTraffic = () => {
+  console.log('Analyzing traffic for:', { selectedRegion, selectedIndustry, selectedTimeRange });
+};
+</script>

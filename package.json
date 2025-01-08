@@ -13,7 +13,7 @@
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@iconify-json/heroicons": "^1.2.2",
-    "@iconify-json/simple-icons": "^1.2.18",
+    "@iconify-json/simple-icons": "^1.2.19",
     "@nuxt/devtools": "^1.7.0",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/ui": "^2.20.0",
@@ -27,9 +27,11 @@
     "googleapis": "^144.0.0",
     "nuxt": "3.15.1",
     "nuxt-icons": "^3.2.1",
-    "openai": "^4.77.3",
+    "nuxt-link-checker": "^4.0.4",
+    "openai": "^4.77.4",
     "pinia": "^2.3.0",
     "postcss": "^8.4.49",
+    "tailwind-scrollbar": "^3.1.0",
     "tailwindcss": "^3.4.17",
     "vue-chartjs": "^5.3.2"
   },
@@ -39,6 +41,7 @@
   "packageManager": "pnpm@9.15.1",
   "devDependencies": {
     "@iconify-json/flag": "^1.2.3",
-    "@iconify-json/lucide": "^1.2.21"
+    "@iconify-json/lucide": "^1.2.22",
+    "eslint": "9.17.0"
   }
 }

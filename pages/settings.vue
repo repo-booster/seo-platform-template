@@ -9,18 +9,29 @@
         <h2 class="text-lg font-medium mb-2 text-gray-800 dark:text-gray-100">Theme</h2>
         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Customize the look and feel of your dashboard.</p>
         <div class="flex items-center space-x-4">
+          <!-- Light Theme -->
           <button 
             @click="setTheme('light')"
             class="flex items-center space-x-2 px-4 py-2 rounded-md"
-            :class="colorMode.preference === 'light' ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-200' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'"
+            :class="colorMode.preference === 'light' 
+              ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-200' 
+              : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'"
+            type="button"
+            aria-label="Switch to light theme"
           >
             <SunIcon class="h-5 w-5" />
             <span>Light</span>
           </button>
+
+          <!-- Dark Theme -->
           <button 
             @click="setTheme('dark')"
             class="flex items-center space-x-2 px-4 py-2 rounded-md"
-            :class="colorMode.preference === 'dark' ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-200' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'"
+            :class="colorMode.preference === 'dark' 
+              ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-200' 
+              : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'"
+            type="button"
+            aria-label="Switch to dark theme"
           >
             <MoonIcon class="h-5 w-5" />
             <span>Dark</span>
@@ -40,34 +51,38 @@
         <form @submit.prevent="saveProfile" class="space-y-6">
           <!-- Name -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+            <p id="name-help" class="text-xs text-gray-500 dark:text-gray-400 mb-2">
               Will appear on receipts, invoices, and other communication.
             </p>
             <input 
+              id="name"
               v-model="profile.name"
               type="text"
               class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-gray-100"
+              aria-describedby="name-help"
             />
           </div>
 
           <!-- Email -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <p id="email-help" class="text-xs text-gray-500 dark:text-gray-400 mb-2">
               Used to sign in, for email receipts, and product updates.
             </p>
             <input 
+              id="email"
               v-model="profile.email"
               type="email"
               class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-gray-100"
+              aria-describedby="email-help"
             />
           </div>
 
           <!-- Username -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
+            <p id="username-help" class="text-xs text-gray-500 dark:text-gray-400 mb-2">
               Your unique username for logging in and your profile URL.
             </p>
             <div class="flex rounded-md shadow-sm">
@@ -75,9 +90,11 @@
                 repo-booster.com/
               </span>
               <input 
+                id="username"
                 v-model="profile.username"
                 type="text"
                 class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-none rounded-r-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-gray-100"
+                aria-describedby="username-help"
               />
             </div>
           </div>
@@ -93,6 +110,7 @@
               <button 
                 type="button"
                 class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
+                aria-label="Choose Avatar"
               >
                 Choose
               </button>
@@ -102,12 +120,14 @@
 
           <!-- Bio -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Bio</label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Brief description for your profile. URLs are hyperlinked.</p>
+            <label for="bio" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Bio</label>
+            <p id="bio-help" class="text-xs text-gray-500 dark:text-gray-400 mb-2">Brief description for your profile. URLs are hyperlinked.</p>
             <textarea 
+              id="bio"
               v-model="profile.bio"
               rows="3"
               class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-gray-100"
+              aria-describedby="bio-help"
             ></textarea>
           </div>
 
@@ -125,3 +145,27 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import { SunIcon, MoonIcon, UserIcon } from '@heroicons/vue/solid';
+
+// Data initialization
+const colorMode = ref({ preference: 'light' }); // Replace with your theme logic
+const profile = ref({
+  name: '',
+  email: '',
+  username: '',
+  avatar: null,
+  bio: '',
+});
+
+// Methods
+const setTheme = (theme) => {
+  colorMode.value.preference = theme;
+};
+
+const saveProfile = () => {
+  console.log('Saving profile:', profile.value);
+};
+</script>

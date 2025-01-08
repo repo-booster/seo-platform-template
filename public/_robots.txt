@@ -3,7 +3,6 @@ User-agent: *
 Allow: /
 
 # Disallow authentication pages
-Disallow: /auth/
 Disallow: /login
 Disallow: /signup
 Disallow: /reset-password

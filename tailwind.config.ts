@@ -1,20 +1,15 @@
-import type { Config } from 'tailwindcss'
-
-export default {
-  darkMode: 'class',
+module.exports = {
   content: [
-    './components/**/*.{js,vue,ts}',
+    './components/**/*.{vue,ts}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
-    './app.vue',
-    './error.vue'
+    './nuxt.config.{js,ts}',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', 'Inter', 'sans-serif']
-      }
-    }
-  }
-} satisfies Config
+    extend: {},
+  },
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
+};
