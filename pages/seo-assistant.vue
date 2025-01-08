@@ -98,7 +98,6 @@ const messages = ref([
   }
 ])
 
-// Simulated AI responses
 const seoResponses = [
   {
     content: 'To improve your on-page SEO, focus on these key areas:',

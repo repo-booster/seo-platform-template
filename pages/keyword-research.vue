@@ -1,9 +1,9 @@
 <template>
   <div class="space-y-8">
     <!-- Header Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h1 class="text-xl font-semibold mb-4">Keyword Overview</h1>
-      <p class="text-gray-600 mb-6">Analyze keywords using your Search Console data and our keyword database.</p>
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h1 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Keyword Overview</h1>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">Analyze keywords using your Search Console data and our keyword database.</p>
       
       <div class="flex space-x-4">
         <div class="flex-1">

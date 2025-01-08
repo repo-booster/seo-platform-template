@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo'
   ],
 
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   ssr: true,
 
   experimental: {
@@ -77,12 +77,6 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
       ]
     }
-  },
-
-  colorMode: {
-    classSuffix: '',
-    preference: 'light',
-    fallback: 'light'
   },
 
   typescript: {

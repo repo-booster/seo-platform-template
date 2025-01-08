@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-6">
     <!-- Welcome Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
+    <div class="bg-grey p-6 rounded-lg shadow">
       <h1 class="text-2xl font-semibold mb-2">Welcome to Repo-Booster</h1>
       <p class="text-gray-600">Your all-in-one SEO analytics and optimization platform</p>
     </div>

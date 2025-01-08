@@ -1,9 +1,10 @@
-import { defineEventHandler } from 'h3'
+import { defineEventHandler, readBody } from 'h3'
 
 export default defineEventHandler(async (event) => {
   const { domain, region } = await readBody(event)
   
-  // Mock response - replace with actual analytics API integration
+  console.log(`Received domain: ${domain}, region: ${region}`)
+  
   return {
     visits: Math.floor(Math.random() * 100000),
     uniqueVisitors: Math.floor(Math.random() * 80000),

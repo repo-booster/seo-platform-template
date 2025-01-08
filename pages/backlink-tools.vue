@@ -1,9 +1,9 @@
 <template>
   <div class="space-y-6">
     <!-- Header Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
+    <div class="bg-grey p-6 rounded-lg shadow">
       <h1 class="text-xl font-semibold mb-4">Backlink Analytics</h1>
-      <p class="text-gray-600 mb-4">Analyze your backlink profile and compare with competitors.</p>
+      <p class="text-white-600 mb-4">Analyze your backlink profile and compare with competitors.</p>
       
       <!-- Main Domain Input -->
       <div class="flex space-x-4 mb-4">
@@ -34,7 +34,7 @@
       <!-- Competitor Domains -->
       <div v-if="mainResults" class="space-y-4">
         <div class="flex items-center justify-between">
-          <h3 class="text-sm font-medium text-gray-700">Compare with competitors</h3>
+          <h3 class="text-sm font-medium text-white-700">Compare with competitors</h3>
           <button 
             @click="addCompetitor"
             class="text-sm text-blue-600 hover:text-blue-700"
@@ -75,7 +75,7 @@
     <div v-if="mainResults || competitorResults.length > 0" class="space-y-6">
       <!-- Overview Metrics -->
       <div class="grid grid-cols-3 gap-6">
-        <div v-for="domain in getAllResults" :key="domain.name" class="bg-white p-6 rounded-lg shadow">
+        <div v-for="domain in getAllResults" :key="domain.name" class="bg-grey p-6 rounded-lg shadow">
           <h3 class="font-medium mb-4">{{ domain.name }}</h3>
           <div class="space-y-4">
             <MetricCard

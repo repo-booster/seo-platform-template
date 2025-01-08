@@ -1,16 +1,20 @@
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="text-3xl font-bold mb-8">Newsroom</h1>
+    <h1 class="text-3xl font-bold mb-8 text-gray-900">Newsroom</h1>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div v-for="article in news" :key="article.id" class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div 
+        v-for="article in news" 
+        :key="article.id" 
+        class="bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow"
+      >
         <div class="p-6">
           <span class="text-sm text-blue-600 font-medium">{{ article.category }}</span>
-          <h2 class="mt-2 text-xl font-semibold">{{ article.title }}</h2>
-          <p class="mt-2 text-gray-600">{{ article.excerpt }}</p>
+          <h2 class="mt-2 text-lg font-semibold text-gray-900">{{ article.title }}</h2>
+          <p class="mt-2 text-sm text-gray-600">{{ article.excerpt }}</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-sm text-gray-500">{{ article.date }}</span>
-            <button class="text-blue-600 hover:text-blue-700">Read more</button>
+            <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">Read more</button>
           </div>
         </div>
       </div>

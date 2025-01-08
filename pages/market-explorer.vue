@@ -1,9 +1,11 @@
 <template>
   <div class="space-y-6">
     <!-- Header Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h1 class="text-xl font-semibold mb-4">Market Explorer</h1>
-      <p class="text-gray-600 mb-4">Analyze any market and benchmark yourself against competitors</p>
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h1 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Market Explorer</h1>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        Analyze any market and benchmark yourself against competitors
+      </p>
 
       <!-- Market Analysis Form -->
       <div class="space-y-4">
@@ -14,7 +16,7 @@
               v-model="domain"
               type="text" 
               placeholder="Enter your domain to analyze" 
-              class="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           <button 
@@ -33,10 +35,11 @@
           </button>
         </div>
 
+        <!-- Industry and Region Selection -->
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Industry</label>
-            <select v-model="selectedIndustry" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Industry</label>
+            <select v-model="selectedIndustry" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500">
               <option value="">Select industry</option>
               <option v-for="industry in industries" :key="industry.id" :value="industry.id">
                 {{ industry.name }}
@@ -44,8 +47,8 @@
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Region</label>
-            <select v-model="selectedRegion" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Region</label>
+            <select v-model="selectedRegion" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500">
               <option value="worldwide">Worldwide</option>
               <option value="us">United States</option>
               <option value="uk">United Kingdom</option>
@@ -54,6 +57,7 @@
           </div>
         </div>
 
+        <!-- Market Analysis Button -->
         <button 
           @click="analyzeMarket"
           :disabled="loading"
@@ -72,8 +76,8 @@
     </div>
 
     <!-- Domain Analysis Results -->
-    <div v-if="domainResults" class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-lg font-medium mb-4">Domain Analysis</h2>
+    <div v-if="domainResults" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h2 class="text-lg font-medium mb-4 text-gray-800 dark:text-gray-100">Domain Analysis</h2>
       <div class="grid grid-cols-4 gap-6">
         <MetricCard
           title="Market Share"
@@ -105,11 +109,6 @@
         />
       </div>
     </div>
-
-    <!-- Market Results Section -->
-    <div v-if="results" class="space-y-6">
-      <!-- Rest of the existing results section... -->
-    </div>
   </div>
 </template>
 
@@ -134,13 +133,11 @@ const industries = [
 ]
 
 const analyzeDomain = async () => {
-  if (!domain.value) return
-  
+  if (!domain.value) return alert('Please enter a domain')
+
   domainLoading.value = true
   try {
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
     domainResults.value = {
       marketShare: 15,
       traffic: '850K',
@@ -153,25 +150,17 @@ const analyzeDomain = async () => {
 }
 
 const analyzeMarket = async () => {
-  if (!selectedIndustry.value) return
-  
+  if (!selectedIndustry.value) return alert('Please select an industry')
+
   loading.value = true
   try {
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
     results.value = {
       marketSize: '$4.5B',
       growthRate: 12.5,
       totalCompanies: '2,450',
       potential: 'High',
-      potentialScore: 85,
-      leaders: [
-        { name: 'Company A', marketShare: 25, growth: 15, traffic: '1.2M' },
-        { name: 'Company B', marketShare: 18, growth: 8, traffic: '950K' },
-        { name: 'Company C', marketShare: 15, growth: -2, traffic: '780K' },
-        { name: 'Company D', marketShare: 12, growth: 5, traffic: '620K' }
-      ]
+      potentialScore: 85
     }
   } finally {
     loading.value = false

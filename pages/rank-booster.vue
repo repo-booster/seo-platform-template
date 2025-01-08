@@ -1,55 +1,54 @@
 <template>
   <div class="space-y-6">
     <!-- Categories List -->
-    <div class="bg-white p-6 rounded-lg shadow">
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
       <div class="flex space-x-6">
         <!-- Left Categories Column -->
         <div class="w-64 space-y-2">
-          <div class="flex justify-between items-center p-2 hover:bg-gray-50 cursor-pointer">
-            <span>All Categories</span>
+          <div class="flex justify-between items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+            <span class="text-gray-800 dark:text-gray-100">All Categories</span>
             <span class="text-orange-500 font-medium">7.9</span>
           </div>
-          <div class="flex justify-between items-center p-2 hover:bg-gray-50 cursor-pointer">
-            <span>Arts & Entertainment</span>
+          <div class="flex justify-between items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+            <span class="text-gray-800 dark:text-gray-100">Arts & Entertainment</span>
             <span class="text-orange-500 font-medium">9.2</span>
           </div>
-          <div class="flex justify-between items-center p-2 hover:bg-gray-50 cursor-pointer">
-            <span>Autos & Vehicles</span>
+          <div class="flex justify-between items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+            <span class="text-gray-800 dark:text-gray-100">Autos & Vehicles</span>
             <span class="text-orange-500 font-medium">8.8</span>
           </div>
-          <!-- Add more categories... -->
         </div>
 
         <!-- Right Content Area -->
         <div class="flex-1">
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center space-x-2">
-              <select class="px-3 py-1 border rounded text-sm">
+              <select class="px-3 py-1 border rounded text-sm bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">
                 <option>United States</option>
               </select>
               <div class="flex items-center space-x-2">
-                <button class="px-3 py-1 bg-gray-100 text-sm rounded flex items-center">
+                <button class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
                   <ComputerDesktopIcon class="h-4 w-4 mr-1" />
                   Desktop
                 </button>
-                <button class="px-3 py-1 text-sm rounded flex items-center">
+                <button class="px-3 py-1 text-sm rounded flex items-center bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
                   <DevicePhoneMobileIcon class="h-4 w-4 mr-1" />
                   Mobile
                 </button>
               </div>
             </div>
-            <button class="text-sm text-gray-600">Share</button>
+            <button class="text-sm text-gray-600 dark:text-gray-300">Share</button>
           </div>
 
           <!-- SERP Volatility Chart -->
           <div class="mb-8">
             <div class="flex justify-between items-start mb-2">
               <div>
-                <h2 class="font-medium">SERP volatility for the last 30 days</h2>
-                <p class="text-sm text-gray-500">All categories</p>
+                <h2 class="font-medium text-gray-800 dark:text-gray-100">SERP volatility for the last 30 days</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400">All categories</p>
               </div>
               <div class="text-right">
-                <div class="text-sm text-gray-500">High range</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">High range</div>
                 <div class="text-4xl font-bold text-orange-500">7.9<span class="text-sm">/10</span></div>
               </div>
             </div>
@@ -60,21 +59,27 @@
 
           <!-- SERP Features Table -->
           <div>
-            <h2 class="font-medium mb-4">SERP Features Occurrence</h2>
-            <p class="text-sm text-gray-500 mb-4">Percentage of SERPs where this feature appears in top 20 results</p>
+            <h2 class="font-medium text-gray-800 dark:text-gray-100 mb-4">SERP Features Occurrence</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+              Percentage of SERPs where this feature appears in top 20 results
+            </p>
             <div class="grid grid-cols-2 gap-x-8 gap-y-2">
-              <div v-for="feature in serpFeatures" :key="feature.name"
-                   class="flex justify-between items-center py-2">
+              <div
+                v-for="feature in serpFeatures"
+                :key="feature.name"
+                class="flex justify-between items-center py-2"
+              >
                 <div class="flex items-center space-x-2">
-                  <component :is="feature.icon" class="h-5 w-5 text-gray-400" />
-                  <span class="text-sm">{{ feature.name }}</span>
+                  <component :is="feature.icon" class="h-5 w-5 text-gray-400 dark:text-gray-500" />
+                  <span class="text-sm text-gray-800 dark:text-gray-100">{{ feature.name }}</span>
                 </div>
                 <div class="flex items-center space-x-4">
-                  <span class="text-sm">{{ feature.percentage }}%</span>
-                  <span :class="[
-                    feature.change > 0 ? 'text-green-500' : 'text-red-500',
-                    'text-sm w-12 text-right'
-                  ]">{{ feature.change > 0 ? '+' : ''}}{{ feature.change }}</span>
+                  <span class="text-sm text-gray-800 dark:text-gray-100">{{ feature.percentage }}%</span>
+                  <span
+                    :class="[feature.change > 0 ? 'text-green-500' : 'text-red-500', 'text-sm w-12 text-right']"
+                  >
+                    {{ feature.change > 0 ? '+' : '' }}{{ feature.change }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -84,18 +89,24 @@
     </div>
 
     <!-- Recent Updates Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="font-medium mb-4">Recent Google Updates</h2>
-      <p class="text-sm text-gray-500 mb-4">Updates for the last 30 days</p>
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h2 class="font-medium text-gray-800 dark:text-gray-100 mb-4">Recent Google Updates</h2>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Updates for the last 30 days</p>
       <div class="space-y-4">
         <div>
-          <h3 class="font-medium">Released the December 2024 spam update</h3>
-          <p class="text-sm text-gray-600">It applies globally and to all languages. The rollout may take up to 1 week to complete.</p>
+          <h3 class="font-medium text-gray-800 dark:text-gray-100">
+            Released the December 2024 spam update
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            It applies globally and to all languages. The rollout may take up to 1 week to complete.
+          </p>
         </div>
         <div>
-          <h3 class="font-medium">Google released the December 2024 core update. It will take about 2 weeks to fully roll out.</h3>
+          <h3 class="font-medium text-gray-800 dark:text-gray-100">
+            Google released the December 2024 core update. It will take about 2 weeks to fully roll out.
+          </h3>
         </div>
-        <button class="text-sm text-blue-600">See all Google Updates</button>
+        <button class="text-sm text-blue-600 dark:text-blue-400 hover:underline">See all Google Updates</button>
       </div>
     </div>
   </div>

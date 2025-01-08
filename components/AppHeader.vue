@@ -110,9 +110,6 @@
                     Careers
                     <span class="ml-2 text-xs bg-blue-100 text-blue-800 px-1.5 rounded">We're hiring</span>
                   </a>
-                  <NuxtLink to="/success-stories" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    Success Stories
-                  </NuxtLink>
                   <NuxtLink to="/affiliate" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
                     Affiliate Program
                   </NuxtLink>
@@ -138,13 +135,7 @@
         <!-- Right Side -->
         <div class="flex items-center space-x-4">
           <ClientOnly>
-            <button 
-              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-              @click="toggleColorMode">
-              <span class="sr-only">Toggle color mode</span>
-              <SunIcon v-if="colorMode.value === 'dark'" class="h-6 w-6" />
-              <MoonIcon v-else class="h-6 w-6" />
-            </button>
+            <ColorModeButton />
           </ClientOnly>
           <button class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <span class="sr-only">Notifications</span>

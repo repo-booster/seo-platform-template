@@ -1,9 +1,9 @@
 <template>
   <div class="space-y-6">
     <!-- Header Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h1 class="text-xl font-semibold mb-4">Industry Traffic Analytics</h1>
-      <p class="text-gray-600 mb-6">Analyze traffic patterns across different industries and regions</p>
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h1 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Industry Traffic Analytics</h1>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">Analyze traffic patterns across different industries and regions</p>
 
       <!-- Search Controls -->
       <div class="space-y-4">
@@ -45,28 +45,30 @@
             >
               <template #option="{ option: industry }">
                 <div class="flex items-center gap-2">
-                  <component :is="industry.icon" class="h-5 w-5 text-gray-400" />
+                  <component :is="industry.icon" class="h-5 w-5 text-gray-400 dark:text-gray-500" />
                   <span>{{ industry.name }}</span>
                 </div>
               </template>
             </USelectMenu>
           </div>
 
-          <button class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+          <button class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
             Analyze
           </button>
         </div>
 
         <!-- Time Range -->
         <div class="flex items-center space-x-4">
-          <span class="text-sm text-gray-600">Time Range:</span>
+          <span class="text-sm text-gray-600 dark:text-gray-300">Time Range:</span>
           <div class="flex space-x-2">
             <button 
               v-for="range in timeRanges" 
               :key="range.value"
               @click="selectedTimeRange = range.value"
               class="px-3 py-1 text-sm rounded-md"
-              :class="selectedTimeRange === range.value ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-50'"
+              :class="selectedTimeRange === range.value 
+                ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-200' 
+                : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'"
             >
               {{ range.label }}
             </button>
@@ -108,25 +110,25 @@
     </div>
 
     <!-- Traffic Sources -->
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-lg font-medium mb-6">Top Traffic Sources</h2>
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h2 class="text-lg font-medium mb-6 text-gray-800 dark:text-gray-100">Top Traffic Sources</h2>
       <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <thead class="bg-gray-50 dark:bg-gray-700">
             <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Traffic Share</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monthly Visits</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Change</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Domain</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Traffic Share</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Monthly Visits</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Change</th>
             </tr>
           </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr v-for="source in trafficSources" :key="source.domain">
-              <td class="px-6 py-4 whitespace-nowrap">{{ source.domain }}</td>
-              <td class="px-6 py-4 whitespace-nowrap">{{ source.share }}%</td>
-              <td class="px-6 py-4 whitespace-nowrap">{{ source.visits }}</td>
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+            <tr v-for="source in trafficSources" :key="source.domain" class="hover:bg-gray-100 dark:hover:bg-gray-700">
+              <td class="px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-100">{{ source.domain }}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-100">{{ source.share }}%</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-800 dark:text-gray-100">{{ source.visits }}</td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <span :class="source.change > 0 ? 'text-green-600' : 'text-red-600'">
+                <span :class="source.change > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'">
                   {{ source.change > 0 ? '+' : '' }}{{ source.change }}%
                 </span>
               </td>
@@ -137,62 +139,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import {
-  ShoppingBagIcon,
-  AcademicCapIcon,
-  BuildingOfficeIcon,
-  HeartIcon,
-  CurrencyDollarIcon,
-  DevicePhoneMobileIcon,
-  FilmIcon,
-  WrenchScrewdriverIcon,
-  TruckIcon,
-  HomeIcon
-} from '@heroicons/vue/24/outline'
-
-const selectedRegion = ref({ name: 'Worldwide', flag: 'i-flag-un' })
-const selectedIndustry = ref(null)
-const selectedTimeRange = ref('30d')
-
-const regions = [
-  { name: 'Worldwide', flag: 'i-flag-un' },
-  { name: 'United States', flag: 'i-flag-us' },
-  { name: 'United Kingdom', flag: 'i-flag-gb' },
-  { name: 'Germany', flag: 'i-flag-de' },
-  { name: 'France', flag: 'i-flag-fr' },
-  { name: 'Japan', flag: 'i-flag-jp' },
-  { name: 'Australia', flag: 'i-flag-au' }
-]
-
-const industries = [
-  { name: 'E-commerce', icon: ShoppingBagIcon },
-  { name: 'Education', icon: AcademicCapIcon },
-  { name: 'Business Services', icon: BuildingOfficeIcon },
-  { name: 'Healthcare', icon: HeartIcon },
-  { name: 'Finance', icon: CurrencyDollarIcon },
-  { name: 'Technology', icon: DevicePhoneMobileIcon },
-  { name: 'Entertainment', icon: FilmIcon },
-  { name: 'Industrial', icon: WrenchScrewdriverIcon },
-  { name: 'Logistics', icon: TruckIcon },
-  { name: 'Real Estate', icon: HomeIcon }
-]
-
-const timeRanges = [
-  { label: '7 days', value: '7d' },
-  { label: '30 days', value: '30d' },
-  { label: '3 months', value: '3m' },
-  { label: '6 months', value: '6m' },
-  { label: '12 months', value: '12m' }
-]
-
-const trafficSources = [
-  { domain: 'amazon.com', share: 15.2, visits: '1.2M', change: 5.3 },
-  { domain: 'walmart.com', share: 8.4, visits: '680K', change: -2.1 },
-  { domain: 'target.com', share: 6.7, visits: '540K', change: 3.8 },
-  { domain: 'bestbuy.com', share: 4.9, visits: '395K', change: 1.2 },
-  { domain: 'ebay.com', share: 4.2, visits: '340K', change: -0.8 }
-]
-</script>

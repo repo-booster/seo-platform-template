@@ -1,22 +1,26 @@
 <template>
-  <aside class="w-64 bg-white dark:bg-gray-800 shadow-sm h-[calc(100vh-4rem)]">
+  <aside class="flex-shrink-0 w-64 bg-gray-50 dark:bg-gray-900 shadow-sm">
     <nav class="p-4 space-y-1">
-      <NuxtLink v-for="item in navigation" 
-                :key="item.name"
-                :to="item.href"
-                class="group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                :class="[
-                  $route.path === item.href
-                    ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-200'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                ]">
-        <component :is="item.icon" 
-                  class="mr-3 h-5 w-5"
-                  :class="[
-                    $route.path === item.href
-                      ? 'text-blue-500 dark:text-blue-300'
-                      : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-300'
-                  ]" />
+      <NuxtLink
+        v-for="item in navigation"
+        :key="item.name"
+        :to="item.href"
+        class="group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+        :class="[ 
+          $route.path === item.href
+            ? 'bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-200'
+            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100'
+        ]"
+      >
+        <component
+          :is="item.icon"
+          class="mr-3 h-5 w-5"
+          :class="[ 
+            $route.path === item.href
+              ? 'text-blue-500 dark:text-blue-300'
+              : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300'
+          ]"
+        />
         {{ item.name }}
       </NuxtLink>
     </nav>
@@ -41,7 +45,15 @@ import {
   ChatBubbleBottomCenterTextIcon,
   BoltIcon,
   ChartPieIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
+  BeakerIcon,
+  ChartBarSquareIcon,
+  CurrencyDollarIcon,
+  UserGroupIcon,
+  ArrowsPointingInIcon,
+  BellAlertIcon,
+  SpeakerWaveIcon,
+  AcademicCapIcon
 } from '@heroicons/vue/24/outline'
 
 const navigation = [
@@ -63,6 +75,23 @@ const navigation = [
   { name: 'Site Audit', href: '/site-audit', icon: DocumentTextIcon },
   { name: 'Local SEO', href: '/local-seo', icon: MapIcon },
   { name: 'Position Tracking', href: '/position-tracking', icon: ChartBarIcon },
-  { name: 'Log File Analyzer', href: '/log-file-analyzer', icon: DocumentMagnifyingGlassIcon }
+  { name: 'Log File Analyzer', href: '/log-file-analyzer', icon: DocumentMagnifyingGlassIcon },
+  { name: 'Data Collection & Analysis', href: '/ai/data-collection', icon: BeakerIcon },
+  { name: 'Keyword Forecasting', href: '/ai/keyword-forecasting', icon: ChartBarSquareIcon },
+  { name: 'Predictive ROI', href: '/ai/predictive-roi', icon: CurrencyDollarIcon },
+  { name: 'Competitive Analysis', href: '/ai/competitive-analysis', icon: UserGroupIcon },
+  { name: 'Conversion Attribution', href: '/ai/conversion-attribution', icon: ArrowsPointingInIcon },
+  { name: 'Content ROI', href: '/ai/content-roi', icon: DocumentTextIcon },
+  { name: 'Automated Reporting', href: '/ai/automated-reporting', icon: BellAlertIcon },
+  { name: 'Sentiment Analysis', href: '/ai/sentiment-analysis', icon: ChatBubbleBottomCenterTextIcon },
+  { name: 'Voice & Visual Search', href: '/ai/voice-visual-search', icon: SpeakerWaveIcon },
+  { name: 'Continuous Learning', href: '/ai/continuous-learning', icon: AcademicCapIcon }
 ]
 </script>
+
+<style scoped>
+html,
+body {
+  height: 100%;
+}
+</style>

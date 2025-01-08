@@ -1,35 +1,59 @@
 <template>
   <div class="space-y-6">
     <!-- Header Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h1 class="text-xl font-semibold mb-4">Traffic Analytics</h1>
-      <p class="text-gray-600 mb-4">Analyze website traffic patterns and user behavior</p>
+    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
+      <h1 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Traffic Analytics</h1>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">Analyze website traffic patterns and user behavior</p>
       
       <div class="flex space-x-4">
+        <!-- Region Selection -->
         <div class="w-40">
-          <select v-model="selectedRegion" class="w-full px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+          <select 
+            v-model="selectedRegion" 
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 dark:focus:border-blue-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100"
+          >
             <option value="worldwide">Worldwide</option>
             <option value="us">United States</option>
             <option value="uk">United Kingdom</option>
           </select>
         </div>
+
+        <!-- Domain Input -->
         <div class="flex-1">
           <input 
             v-model="domain"
             type="text" 
             placeholder="Enter domain" 
-            class="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 dark:focus:border-blue-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100"
           />
         </div>
+
+        <!-- Analyze Button -->
         <button 
           @click="analyzeTraffic"
           :disabled="loading"
-          class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 flex items-center space-x-2"
+          class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 disabled:opacity-50 flex items-center space-x-2"
         >
           <template v-if="loading">
-            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            <svg 
+              class="animate-spin h-5 w-5 text-white" 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24"
+            >
+              <circle 
+                class="opacity-25" 
+                cx="12" 
+                cy="12" 
+                r="10" 
+                stroke="currentColor" 
+                stroke-width="4"
+              ></circle>
+              <path 
+                class="opacity-75" 
+                fill="currentColor" 
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
             </svg>
             <span>Analyzing...</span>
           </template>
@@ -40,6 +64,7 @@
 
     <!-- Results Section -->
     <div v-if="results" class="grid grid-cols-4 gap-6">
+      <!-- Metric Cards -->
       <MetricCard
         title="Total Visits"
         :value="results.visits.toLocaleString()"
