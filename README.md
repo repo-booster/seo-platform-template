@@ -2,8 +2,9 @@
    
 # Repo-Booster Seo Dashboard Template
 
-  <a href="https://github.com/repo-booster/repo-booster/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/repo-booster/repo-booster?style=flat&colorA=18181B&colorB=28CF8D" alt="License">
+<div>
+  <a href="https://github.com/repo-booster/repo-booster-seo/main/LICENSE">
+    <img src="https://img.shields.io/github/license/repo-booster/repo-booster?style=flat&colorA=18181B&colorB=28CF8D" alt="MIT">
   </a>
 
   <a href="https://app.repo-booster.com">
@@ -14,7 +15,11 @@
     <img src="https://img.shields.io/badge/Docs-Repo%20Booster-18181B?style=flat&logo=readthedocs&logoColor=28CF8D&colorB=28CF8D" alt="Docs">
   </a>
 
+  <a href="https://status.repo-booster.com">
+    <img src="https://img.shields.io/badge/Status-Repo%20Booster-18181B?style=flat&logo=check-mark&logoColor=28CF8D&colorB=28CF8D" alt="Status">
+  </a>
 </div>
+
 
 ---
 
