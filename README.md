@@ -20,11 +20,7 @@
   </a>
 </div>
 
-
----
-
-
-Repo-Booster is an advanced SEO analytics platform designed to help users optimize their website performance, analyze traffic, and stay ahead in their industry. With features like keyword research, backlink analysis, and AI-powered insights, Repo-Booster provides all the tools necessary for modern SEO strategies while keeping a clean and easy to use dashboard.
+</div>
 
 ---
 
