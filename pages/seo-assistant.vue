@@ -1,20 +1,46 @@
+```vue
 <template>
-  <div class="space-y-6">
+  <div class="max-w-5xl mx-auto p-6">
     <!-- Header Section -->
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-      <h1 class="text-xl font-semibold mb-4">SEO Assistant</h1>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Get instant SEO advice and recommendations from our AI-powered assistant</p>
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">SEO Assistant</h1>
+      <p class="text-gray-600 dark:text-gray-400">
+        Get instant SEO advice and recommendations powered by AI
+      </p>
     </div>
 
     <!-- Chat Interface -->
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow h-[calc(100vh-16rem)]">
-      <!-- Chat Messages -->
-      <div class="h-[calc(100%-5rem)] overflow-y-auto p-6 space-y-4">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+      <!-- Messages Area -->
+      <div class="h-[calc(100vh-20rem)] overflow-y-auto p-6 space-y-6">
+        <!-- Welcome Message -->
+        <div class="flex items-start space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center flex-shrink-0">
+            <SparklesIcon class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+          </div>
+          <div class="flex-1">
+            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 max-w-3xl">
+              <p class="text-gray-800 dark:text-gray-200 mb-4">
+                Hi! I'm your SEO assistant. I can help you with:
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div v-for="(feature, index) in features" :key="index"
+                     class="flex items-start space-x-2">
+                  <component :is="feature.icon" 
+                           class="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                  <span class="text-gray-700 dark:text-gray-300">{{ feature.text }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Messages -->
         <template v-for="message in messages" :key="message.id">
           <!-- AI Message -->
           <div v-if="message.type === 'ai'" class="flex items-start space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center flex-shrink-0">
-              <SparklesIcon class="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center flex-shrink-0">
+              <SparklesIcon class="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div class="flex-1">
               <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 max-w-3xl">
@@ -37,8 +63,8 @@
                 <p>{{ message.content }}</p>
               </div>
             </div>
-            <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0">
-              <UserIcon class="w-5 h-5 text-gray-600 dark:text-gray-300" />
+            <div class="w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0">
+              <UserIcon class="w-6 h-6 text-gray-600 dark:text-gray-300" />
             </div>
           </div>
         </template>
@@ -65,6 +91,7 @@
             :loading="isTyping"
             :disabled="!userInput.trim()"
             @click="sendMessage"
+            color="blue"
           >
             <template #leading>
               <PaperAirplaneIcon class="h-4 w-4" />
@@ -79,25 +106,38 @@
 
 <script setup>
 import { ref } from 'vue'
-import { SparklesIcon, UserIcon, LightBulbIcon, PaperAirplaneIcon } from '@heroicons/vue/24/outline'
+import { 
+  SparklesIcon, 
+  UserIcon, 
+  LightBulbIcon, 
+  PaperAirplaneIcon,
+  MagnifyingGlassIcon,
+  DocumentTextIcon,
+  ChartBarIcon,
+  LinkIcon,
+  GlobeAltIcon,
+  RocketLaunchIcon
+} from '@heroicons/vue/24/outline'
+
+// Define layout
+definePageMeta({
+  layout: 'seo'
+})
+
+const features = [
+  { icon: MagnifyingGlassIcon, text: 'Keyword research and analysis' },
+  { icon: DocumentTextIcon, text: 'Content optimization strategies' },
+  { icon: ChartBarIcon, text: 'Technical SEO recommendations' },
+  { icon: LinkIcon, text: 'Link building advice' },
+  { icon: GlobeAltIcon, text: 'Local SEO optimization' },
+  { icon: RocketLaunchIcon, text: 'Performance improvements' }
+]
 
 const userInput = ref('')
 const isTyping = ref(false)
-const messages = ref([
-  {
-    id: 1,
-    type: 'ai',
-    content: 'Hello! I\'m your SEO assistant. I can help you with:',
-    tips: [
-      'On-page SEO optimization',
-      'Keyword research and analysis',
-      'Technical SEO recommendations',
-      'Content optimization strategies',
-      'Link building advice'
-    ]
-  }
-])
+const messages = ref([])
 
+// Simulated AI responses
 const seoResponses = [
   {
     content: 'To improve your on-page SEO, focus on these key areas:',
@@ -160,3 +200,4 @@ const sendMessage = async () => {
   isTyping.value = false
 }
 </script>
+```

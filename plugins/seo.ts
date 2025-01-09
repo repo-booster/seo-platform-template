@@ -120,7 +120,6 @@ export default defineNuxtPlugin(() => {
       title: 'Website Performance Insights',
       description: 'Monitor and enhance your website\'s performance with detailed metrics.'
     },
-    // AI Pages
     '/ai/automated-reporting': {
       title: 'Automated Reporting',
       description: 'Generate comprehensive SEO reports automatically and save time.'

@@ -3,7 +3,7 @@
     <nav class="p-4 space-y-6">
       <!-- Dashboard Section -->
       <div>
-        <div class="px-3 mb-2 text-xs font-bold text-black-400 uppercase tracking-wider">
+        <div class="px-3 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
           Dashboard
         </div>
         <div class="space-y-1">
@@ -21,7 +21,7 @@
 
       <!-- SEO Tools Section -->
       <div>
-        <div class="px-3 mb-2 text-xs font-bold text-black-400 uppercase tracking-wider">
+        <div class="px-3 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
           SEO Tools
         </div>
         <div class="space-y-1">
@@ -39,7 +39,7 @@
 
       <!-- Traffic Tools Section -->
       <div>
-        <div class="px-3 mb-2 text-xs font-bold text-black-400 uppercase tracking-wider">
+        <div class="px-3 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
           Traffic Tools
         </div>
         <div class="space-y-1">
@@ -57,9 +57,9 @@
 
       <!-- AI Tools Section -->
       <div>
-        <div class="px-3 mb-2 text-xs font-bold text-black-400 uppercase tracking-wider">
+        <div class="px-3 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
           AI Tools
-          <UBadge icon="i-lucide-sparkles" size="xs" color="primary" variant="solid">PRO</UBadge>
+          <span class="ml-2 px-1.5 py-0.5 text-[10px] font-medium bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded">NEW</span>
         </div>
         <div class="space-y-1">
           <NuxtLink 
@@ -76,7 +76,7 @@
 
       <!-- Support Section -->
       <div>
-        <div class="px-3 mb-2 text-xs font-bold text-black-400 uppercase tracking-wider">
+        <div class="px-3 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
           Support
         </div>
         <div class="space-y-1">
@@ -146,7 +146,7 @@ const seoTools = [
   { name: 'Domain Overview', href: '/domain-overview', icon: ChartBarIcon },
   { name: 'Link Building', href: '/link-building', icon: BuildingLibraryIcon },
   { name: 'Market Explorer', href: '/market-explorer', icon: GlobeAltIcon },
-  { name: 'Keyword Research', href: '/keyword-research', icon: MagnifyingGlassIcon },
+  { name: 'Keyword Research', href: '/keyword-research', icon: CursorArrowRaysIcon },
   { name: 'Keyword Magic Tool', href: '/keyword-magic', icon: SparklesIcon },
   { name: 'On-Page SEO', href: '/on-page-seo', icon: ClipboardDocumentCheckIcon },
   { name: 'Backlink Tools', href: '/backlink-tools', icon: LinkIcon },
@@ -161,7 +161,7 @@ const trafficTools = [
   { name: 'Industry Traffic', href: '/niche-traffic', icon: ChartPieIcon },
   { name: 'Organic Traffic', href: '/organic-traffic', icon: SignalIcon },
   { name: 'Log File Analyzer', href: '/log-file-analyzer', icon: DocumentMagnifyingGlassIcon },
-  { name: 'Rank Booster', href: '/rank-booster', icon: ChartBarIcon },
+  { name: 'Rank Booster', href: '/rank-booster', icon: RocketLaunchIcon },
 ]
 
 const aiTools = [
