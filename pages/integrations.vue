@@ -6,12 +6,17 @@
       <div 
         v-for="integration in integrations" 
         :key="integration.name" 
-        class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
+        class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-shadow hover:bg-gray-100"
       >
-        <img :src="integration.logo" :alt="integration.name" class="h-12 mb-4">
+        <img :src="integration.icon" :alt="integration.name" class="h-12 mb-4">
         <h3 class="text-lg font-medium mb-2 text-gray-900">{{ integration.name }}</h3>
         <p class="text-sm text-gray-600 mb-4">{{ integration.description }}</p>
-        <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">Learn more →</button>
+        <NuxtLink 
+          :to="`/integrations/${integration.name.toLowerCase().replace(/ /g, '-')}`"
+          class="text-sm text-blue-600 hover:text-blue-700 font-medium"
+        >
+          Learn more →
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -21,18 +26,33 @@
 const integrations = [
   {
     name: 'Google Analytics',
-    logo: '/images/ga-logo.png',
+    icon: '/images/googleanalytics.svg',
     description: 'Connect your analytics data for deeper insights into your traffic and user behavior.'
   },
   {
     name: 'Google Search Console',
-    logo: '/images/gsc-logo.png',
+    icon: '/images/googlesearchconsole.svg',
     description: 'Import your search performance data and track your rankings more effectively.'
   },
   {
     name: 'WordPress',
-    logo: '/images/wp-logo.png',
+    icon: '/images/wordpress.svg',
+    description: 'Seamlessly integrate SEO tools directly into your WordPress dashboard.'
+  },
+  {
+    name: 'Coming Soon...',
+    icon: '/images/googleanalytics.svg',
+    description: ''
+  },
+  {
+    name: 'Google Search Console',
+    icon: '/images/googlesearchconsole.svg',
+    description: 'Import your search performance data and track your rankings more effectively.'
+  },
+  {
+    name: 'WordPress',
+    icon: '/images/wordpress.svg',
     description: 'Seamlessly integrate SEO tools directly into your WordPress dashboard.'
   }
-]
+];
 </script>

@@ -1,23 +1,23 @@
 <template>
   <div class="space-y-6">
     <!-- Header Section -->
-    <div class="bg-white p-6 rounded-lg shadow">
+    <div class="bg-gray-100 p-6 rounded-lg shadow">
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h1 class="text-xl font-semibold mb-2">Projects</h1>
-          <p class="text-gray-600">Manage and monitor your SEO projects</p>
+          <h1 class="text-xl font-semibold text-gray-900 mb-2">Projects</h1>
+          <p class="text-gray-700">Manage and monitor your SEO projects</p>
         </div>
         <div class="flex items-center space-x-4">
           <div class="flex items-center space-x-2">
-            <input 
+            <input
               v-model="search"
               type="text"
               placeholder="Search projects..."
-              class="px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+              class="px-3 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
             />
-            <select 
+            <select
               v-model="filter"
-              class="px-3 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+              class="px-3 py-2 border border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"
             >
               <option value="all">All Projects</option>
               <option value="active">Active</option>
@@ -25,9 +25,9 @@
               <option value="archived">Archived</option>
             </select>
           </div>
-          <button 
+          <button
             @click="openProjectModal"
-            class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center space-x-2"
+            class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 flex items-center space-x-2"
           >
             <PlusIcon class="h-5 w-5" />
             <span>Create project</span>
@@ -37,21 +37,24 @@
 
       <!-- Project List -->
       <div class="space-y-4">
-        <div v-for="project in filteredProjects" :key="project.domain" 
-             class="border rounded-lg p-4 hover:bg-gray-50">
+        <div
+          v-for="project in filteredProjects"
+          :key="project.domain"
+          class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition"
+        >
           <div class="flex items-center justify-between">
             <div>
-              <h3 class="font-medium">{{ project.domain }}</h3>
+              <h3 class="font-medium text-gray-900">{{ project.domain }}</h3>
               <p class="text-sm text-gray-600">Last updated: {{ project.lastUpdated }}</p>
             </div>
             <div class="flex items-center space-x-6">
               <div class="text-sm">
-                <div>Site Health</div>
-                <div class="font-medium text-blue-600">{{ project.siteHealth }}%</div>
+                <div class="text-gray-500">Site Health</div>
+                <div class="font-medium text-teal-600">{{ project.siteHealth }}%</div>
               </div>
               <div class="text-sm">
-                <div>Visibility</div>
-                <div class="font-medium text-blue-600">{{ project.visibility }}%</div>
+                <div class="text-gray-500">Visibility</div>
+                <div class="font-medium text-teal-600">{{ project.visibility }}%</div>
               </div>
               <UDropdown :items="projectActions">
                 <button class="text-gray-400 hover:text-gray-600">
@@ -63,10 +66,18 @@
 
           <!-- Project Tools -->
           <div class="mt-4 grid grid-cols-4 gap-4">
-            <div v-for="tool in project.tools" :key="tool.name"
-                 class="p-3 border rounded-lg text-center hover:bg-gray-100 cursor-pointer">
-              <div class="text-sm font-medium">{{ tool.name }}</div>
-              <div class="text-xs" :class="getStatusColor(tool.status)">{{ tool.status }}</div>
+            <div
+              v-for="tool in project.tools"
+              :key="tool.name"
+              class="p-3 border border-gray-200 rounded-lg text-center hover:bg-gray-100 cursor-pointer transition"
+            >
+              <div class="text-sm font-medium text-gray-800">{{ tool.name }}</div>
+              <div
+                class="text-xs font-medium px-2 py-1 rounded"
+                :class="getStatusColor(tool.status)"
+              >
+                {{ tool.status }}
+              </div>
             </div>
           </div>
         </div>
@@ -74,7 +85,7 @@
     </div>
 
     <!-- Project Modal -->
-    <ProjectModal 
+    <ProjectModal
       ref="projectModal"
       @project-created="handleProjectCreated"
     />
@@ -110,26 +121,25 @@ const projectActions = [
 ]
 
 const filteredProjects = computed(() => {
-  return projects.value
-    .filter(project => {
-      const matchesSearch = project.domain.toLowerCase().includes(search.value.toLowerCase())
-      const matchesFilter = filter.value === 'all' ? true : project.status === filter.value
-      return matchesSearch && matchesFilter
-    })
+  return projects.value.filter(project => {
+    const matchesSearch = project.domain.toLowerCase().includes(search.value.toLowerCase())
+    const matchesFilter = filter.value === 'all' ? true : project.status === filter.value
+    return matchesSearch && matchesFilter
+  })
 })
 
 const getStatusColor = (status) => {
   switch (status.toLowerCase()) {
     case 'running':
-      return 'text-green-600'
+      return 'bg-green-100 text-green-600'
     case 'set up':
-      return 'text-blue-600'
+      return 'bg-teal-100 text-teal-600'
     case 'not configured':
-      return 'text-gray-500'
+      return 'bg-gray-100 text-gray-500'
     case 'active':
-      return 'text-green-600'
+      return 'bg-green-100 text-green-600'
     default:
-      return 'text-gray-500'
+      return 'bg-gray-100 text-gray-500'
   }
 }
 
