@@ -1,8 +1,11 @@
 <div align="center">
-   
+
 # Repo-Booster Seo Dashboard Template
 
-<div>
+<div align="center">
+
+![Landing](https://github.com/user-attachments/assets/9eccaa4d-b283-4e69-bfa4-f889cfe2d0bd)
+---
   <a href="https://app.repo-booster.com">
     <img src="https://img.shields.io/badge/Website-Repo%20Booster-18181B?style=flat&logo=google-chrome&logoColor=28CF8D&colorB=28CF8D" alt="Website">
   </a>
