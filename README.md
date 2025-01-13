@@ -3,10 +3,6 @@
 # Repo-Booster Seo Dashboard Template
 
 <div>
-  <a href="https://github.com/repo-booster/repo-booster-seo/main/LICENSE">
-    <img src="https://img.shields.io/github/license/repo-booster/repo-booster?style=flat&colorA=18181B&colorB=28CF8D" alt="MIT">
-  </a>
-
   <a href="https://app.repo-booster.com">
     <img src="https://img.shields.io/badge/Website-Repo%20Booster-18181B?style=flat&logo=google-chrome&logoColor=28CF8D&colorB=28CF8D" alt="Website">
   </a>
@@ -46,55 +42,6 @@
 - **Heroicons**: Scalable vector icons for consistent UI elements.
 - **Sitemap & SEO**: Dynamic sitemap generation and SEO optimization.
 - **MUCH MUCH MORE** 
-
----
-
-## 📂 Pages Structure
-
-```plaintext
-📦pages
- ┣ 📂ai
- ┃ ┣ 📜automated-reporting.vue
- ┃ ┣ 📜competitive-analysis.vue
- ┃ ┣ 📜content-roi.vue
- ┃ ┣ 📜continuous-learning.vue
- ┃ ┣ 📜conversion-attribution.vue
- ┃ ┣ 📜data-collection.vue
- ┃ ┣ 📜keyword-forecasting.vue
- ┃ ┣ 📜predictive-roi.vue
- ┃ ┣ 📜sentiment-analysis.vue
- ┃ ┗ 📜voice-visual-search.vue
- ┣ 📜about.vue
- ┣ 📜affiliate.vue
- ┣ 📜backlink-tools.vue
- ┣ 📜contacts.vue
- ┣ 📜domain-overview.vue
- ┣ 📜features.vue
- ┣ 📜index.vue
- ┣ 📜integrations.vue
- ┣ 📜keyword-magic.vue
- ┣ 📜keyword-research.vue
- ┣ 📜link-building.vue
- ┣ 📜listing-management.vue
- ┣ 📜local-seo.vue
- ┣ 📜log-file-analyzer.vue
- ┣ 📜market-explorer.vue
- ┣ 📜newsroom.vue
- ┣ 📜niche-traffic.vue
- ┣ 📜on-page-seo.vue
- ┣ 📜organic-traffic.vue
- ┣ 📜position-tracking.vue
- ┣ 📜pricing.vue
- ┣ 📜projects.vue
- ┣ 📜rank-booster.vue
- ┣ 📜seo-assistant.vue
- ┣ 📜seo-features.vue
- ┣ 📜settings.vue
- ┣ 📜site-audit.vue
- ┣ 📜stats.vue
- ┣ 📜traffic-analytics.vue
- ┗ 📜website-performance.vue
-```
 
 ---
 

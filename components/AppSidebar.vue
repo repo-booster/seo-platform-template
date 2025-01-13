@@ -97,7 +97,7 @@
       <div class="p-4 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
         <SparklesIcon class="w-8 h-8 mb-2" />
         <h3 class="font-medium mb-1">Upgrade to Pro</h3>
-        <p class="text-sm text-blue-100 mb-3">Get access to advanced AI features</p>
+        <p class="text-sm text-blue-100 mb-3">Acces all AI features</p>
         <button class="w-full px-3 py-2 bg-white text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors">
           Upgrade Now
         </button>
@@ -125,10 +125,8 @@ import {
   BoltIcon,
   ArrowPathIcon,
   BeakerIcon,
-  RocketLaunchIcon,
   ChatBubbleBottomCenterTextIcon,
   SpeakerWaveIcon,
-  CursorArrowRaysIcon,
   PresentationChartLineIcon,
   SparklesIcon,
   QuestionMarkCircleIcon,
@@ -138,7 +136,7 @@ import {
 const mainNavigation = [
   { name: 'SEO Dashboard', href: '/', icon: HomeIcon },
   { name: 'Projects', href: '/projects', icon: FolderIcon },
-  { name: 'SEO-GPT', href: '/seo-assistant', icon: SparklesIcon },
+  { name: 'AI-assistant', href: '/seo-assistant', icon: SparklesIcon },
 
 ]
 
@@ -146,7 +144,6 @@ const seoTools = [
   { name: 'Domain Overview', href: '/domain-overview', icon: ChartBarIcon },
   { name: 'Link Building', href: '/link-building', icon: BuildingLibraryIcon },
   { name: 'Market Explorer', href: '/market-explorer', icon: GlobeAltIcon },
-  { name: 'Keyword Research', href: '/keyword-research', icon: CursorArrowRaysIcon },
   { name: 'Keyword Magic Tool', href: '/keyword-magic', icon: SparklesIcon },
   { name: 'On-Page SEO', href: '/on-page-seo', icon: ClipboardDocumentCheckIcon },
   { name: 'Backlink Tools', href: '/backlink-tools', icon: LinkIcon },
@@ -161,7 +158,7 @@ const trafficTools = [
   { name: 'Industry Traffic', href: '/niche-traffic', icon: ChartPieIcon },
   { name: 'Organic Traffic', href: '/organic-traffic', icon: SignalIcon },
   { name: 'Log File Analyzer', href: '/log-file-analyzer', icon: DocumentMagnifyingGlassIcon },
-  { name: 'Rank Booster', href: '/rank-booster', icon: RocketLaunchIcon },
+  { name: 'Rank Booster', href: '/rank-booster', icon: ChartBarIcon },
 ]
 
 const aiTools = [
