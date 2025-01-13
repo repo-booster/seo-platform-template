@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxtjs/color-mode', '@nuxt/fonts', '@nuxtjs/seo', 'nuxt-link-checker'],
+  modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxtjs/color-mode', '@nuxt/fonts', '@nuxtjs/seo', 'nuxt-link-checker', 'nuxt-lucide-icons'],
 
   devtools: { enabled: true },
   ssr: true,

@@ -4,17 +4,15 @@
     <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
       <h1 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Domain Overview</h1>
       <p class="text-gray-600 dark:text-gray-300 mb-4">
-        Get a comprehensive analysis of any domain's online presence
+        Get a comprehensive analysis of any domain's online presence.
       </p>
-      <div class="flex space-x-4">
-        <div class="flex-1">
-          <input
-            v-model="domain"
-            type="text"
-            placeholder="Enter domain, subdomain or URL"
-            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 dark:focus:border-blue-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100"
-          />
-        </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input
+          v-model="domain"
+          type="text"
+          placeholder="Enter domain, subdomain, or URL"
+          class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 dark:focus:border-blue-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100"
+        />
         <button
           @click="analyzeDomain"
           :disabled="loading"
@@ -51,7 +49,7 @@
     <!-- Results Section -->
     <div v-if="results" class="space-y-6">
       <!-- Overview Metrics -->
-      <div class="grid grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard
           title="Domain Authority"
           :value="results.authority.score.toString()"
@@ -83,7 +81,7 @@
       </div>
 
       <!-- Detailed Stats -->
-      <div class="grid grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Traffic Sources -->
         <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow">
           <h2 class="text-lg font-medium mb-4 text-gray-800 dark:text-gray-100">Traffic Sources</h2>
@@ -139,45 +137,45 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const domain = ref('')
-const loading = ref(false)
-const results = ref(null)
+const domain = ref('');
+const loading = ref(false);
+const results = ref(null);
 
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const analyzeDomain = async () => {
-  loading.value = true
+  loading.value = true;
 
   setTimeout(() => {
     results.value = {
       authority: { score: getRandomInt(50, 100) },
       traffic: {
         organic: getRandomInt(10000, 50000),
-        trend: Array.from({ length: 12 }, () => getRandomInt(8000, 60000))
+        trend: Array.from({ length: 12 }, () => getRandomInt(8000, 60000)),
       },
       backlinks: {
         total: getRandomInt(1000, 10000),
-        trend: Array.from({ length: 12 }, () => getRandomInt(900, 9500))
+        trend: Array.from({ length: 12 }, () => getRandomInt(900, 9500)),
       },
       keywords: {
         total: getRandomInt(1000, 5000),
-        trend: Array.from({ length: 12 }, () => getRandomInt(800, 6000))
+        trend: Array.from({ length: 12 }, () => getRandomInt(800, 6000)),
       },
       trafficSources: [
         { name: 'Search', percentage: getRandomInt(40, 70), icon: 'SearchIcon' },
         { name: 'Direct', percentage: getRandomInt(20, 50), icon: 'DirectIcon' },
         { name: 'Referral', percentage: getRandomInt(5, 30), icon: 'ReferralIcon' },
-        { name: 'Social', percentage: getRandomInt(1, 15), icon: 'SocialIcon' }
+        { name: 'Social', percentage: getRandomInt(1, 15), icon: 'SocialIcon' },
       ],
       topKeywords: Array.from({ length: 5 }, () => ({
         term: `Keyword ${getRandomInt(1, 100)}`,
         position: getRandomInt(1, 50),
-        change: getRandomInt(-10, 10)
-      }))
-    }
-    loading.value = false
-  }, 2000)
-}
+        change: getRandomInt(-10, 10),
+      })),
+    };
+    loading.value = false;
+  }, 2000);
+};
 </script>

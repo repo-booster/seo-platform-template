@@ -29,6 +29,7 @@
     "nuxt": "3.15.1",
     "nuxt-icons": "^3.2.1",
     "nuxt-link-checker": "^4.0.4",
+    "nuxt-lucide-icons": "^1.0.5",
     "openai": "^4.77.4",
     "pinia": "^2.3.0",
     "postcss": "^8.4.49",

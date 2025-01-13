@@ -13,7 +13,6 @@ export default defineEventHandler(async (event): Promise<TechnicalSEOResponse> =
   }
 
   try {
-    // Mock response - integrate with real crawling service in production
     return {
       issues: {
         critical: [

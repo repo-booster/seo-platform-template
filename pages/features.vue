@@ -4,36 +4,17 @@
     <div class="text-center max-w-3xl mx-auto">
       <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100">Repo-Booster Features</h1>
       <p class="text-gray-600 dark:text-gray-300 mb-8">Start solving your marketing challenges today with 55+ tools and reports on Repo-Booster.</p>
-      <button class="px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600">
+      <button class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-500">
         Get Started for Free
       </button>
     </div>
 
-    <!-- Categories -->
-    <div class="flex justify-center space-x-4 flex-wrap">
-      <button class="px-4 py-2 bg-emerald-500 text-white rounded-full hover:bg-emerald-600">All</button>
-      <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700">
-        SEO
-      </button>
-      <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700">
-        Content
-      </button>
-      <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700">
-        Market Research
-      </button>
-      <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700">
-        Advertising
-      </button>
-      <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700">
-        Social Media
-      </button>
-    </div>
 
     <!-- Feature Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div v-for="feature in features" :key="feature.title" 
            class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <div class="h-32 bg-blue-50 dark:bg-blue-900 rounded-lg mb-4 flex items-center justify-center">
+        <div class="h-32 bg-blue-50 dark:bg-white-900 rounded-lg mb-4 flex items-center justify-center">
           <img :src="feature.image" :alt="feature.title" class="h-24 w-24 object-contain" />
         </div>
         <h3 class="font-medium mb-2 text-gray-800 dark:text-gray-100">{{ feature.title }}</h3>
@@ -50,7 +31,7 @@
     <!-- Bottom CTA -->
     <div class="bg-purple-100 dark:bg-purple-900 rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Get it all in one with Repo-Booster</h2>
-      <button class="px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600">
+      <button class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-600">
         Get free trial
       </button>
     </div>
@@ -79,37 +60,31 @@ const features = [
     title: 'Keyword Research',
     description: 'Get high-performing keywords for your content and PPC campaigns.',
     image: '/images/keyword-research.svg',
-    price: '119.95'
   },
   {
     title: 'On-page SEO',
     description: 'Get ideas to improve your website\'s on-page SEO.',
     image: '/images/on-page-seo.svg',
-    price: '119.95'
   },
   {
     title: 'Competitor Analysis',
     description: 'Boost your performance by analyzing competitors.',
     image: '/images/competitor-analysis.svg',
-    price: '119.95'
   },
   {
     title: 'Content Marketing',
     description: 'Develop a powerful content strategy with data-driven insights.',
     image: '/images/content-marketing.svg',
-    price: '119.95'
   },
   {
     title: 'Local SEO',
     description: 'Optimize your site for local search results.',
     image: '/images/local-seo.svg',
-    price: '119.95'
   },
   {
     title: 'Rank Tracking',
     description: 'Track changes of your target keywords in real-time.',
     image: '/images/rank-tracking.svg',
-    price: '119.95'
   }
 ]
 

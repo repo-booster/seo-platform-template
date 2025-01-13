@@ -1,4 +1,3 @@
-// OpenAI Types for SEO Analysis
 export interface SEOPrompt {
   type: 'content' | 'technical' | 'keyword' | 'competitor' | 'strategy'
   context: {

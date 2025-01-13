@@ -47,8 +47,6 @@ export default defineEventHandler(async (event) => {
     '/ai/automated-reporting',
     '/ai/competitive-analysis',
     '/ai/content-roi',
-    '/ai/continuous-learning',
-    '/ai/conversion-attribution',
     '/ai/data-collection',
     '/ai/keyword-forecasting',
     '/ai/predictive-roi',

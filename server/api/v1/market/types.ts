@@ -1,7 +1,7 @@
 export interface MarketAnalysisResponse {
   market_overview: {
-    size: number // Market size in USD
-    growth_rate: number // Annual growth rate percentage
+    size: number
+    growth_rate: number
     total_addressable_market: number
     market_share_distribution: Array<{
       company: string

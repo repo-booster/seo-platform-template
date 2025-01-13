@@ -68,6 +68,9 @@ importers:
       nuxt-link-checker:
         specifier: ^4.0.4
         version: 4.0.4(magicast@0.3.5)(rollup@4.30.1)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.5)(terser@5.37.0))(vue@3.5.13(typescript@5.7.2))
+      nuxt-lucide-icons:
+        specifier: ^1.0.5
+        version: 1.0.5(magicast@0.3.5)(rollup@4.30.1)(vue@3.5.13(typescript@5.7.2))
       openai:
         specifier: ^4.77.4
         version: 4.77.4
@@ -2872,6 +2875,11 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lucide-vue-next@0.471.0:
+    resolution: {integrity: sha512-ZJyImsuBOR91VF5auILuo1U0m93sSjYs+i/m5ISx8oG4FWMXX7hzuotx24/dTMRp+e8pMWUeVmPBKsNcNSrUzg==}
+    peerDependencies:
+      vue: '>=3.0.1'
+
   magic-regexp@0.8.0:
     resolution: {integrity: sha512-lOSLWdE156csDYwCTIGiAymOLN7Epu/TU5e/oAnISZfU6qP+pgjkE+xbVjVn3yLPKN8n1G2yIAYTAM5KRk6/ow==}
 
@@ -3116,6 +3124,9 @@ packages:
 
   nuxt-link-checker@4.0.4:
     resolution: {integrity: sha512-pXDsqlQBfcz+riW3jbKNzPG+ig2bI6c9IrUTvEFwy2IUGtDIMgRjkx/kZkpV8cLxIdlLdTW9phkLiL1XbRlmMQ==}
+
+  nuxt-lucide-icons@1.0.5:
+    resolution: {integrity: sha512-Mq9lFnPZu9VoIRPxbayGEyxpso9GpccJS3dqI88oiyrcXI6ZA/Qi+jHSKvYmmbZccZGyroxRQlfa58tGN5SmLw==}
 
   nuxt-og-image@4.0.2:
     resolution: {integrity: sha512-jfWgPnpMSbO3o5F/hmBVgJjw5dyVSa6xKM9X3es+szXdoeCMC+evd9l/zJ6mbsTGAwgMv/QYOMsm9WvK8bs1fw==}
@@ -7719,6 +7730,10 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  lucide-vue-next@0.471.0(vue@3.5.13(typescript@5.7.2)):
+    dependencies:
+      vue: 3.5.13(typescript@5.7.2)
+
   magic-regexp@0.8.0:
     dependencies:
       estree-walker: 3.0.3
@@ -8023,6 +8038,18 @@ snapshots:
       - supports-color
       - typescript
       - vite
+      - vue
+
+  nuxt-lucide-icons@1.0.5(magicast@0.3.5)(rollup@4.30.1)(vue@3.5.13(typescript@5.7.2)):
+    dependencies:
+      '@nuxt/kit': 3.15.1(magicast@0.3.5)(rollup@4.30.1)
+      lucide-vue-next: 0.471.0(vue@3.5.13(typescript@5.7.2))
+      pathe: 1.1.2
+      scule: 1.3.0
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
       - vue
 
   nuxt-og-image@4.0.2(magicast@0.3.5)(rollup@4.30.1)(vite@5.4.11(@types/node@22.10.5)(terser@5.37.0))(vue@3.5.13(typescript@5.7.2)):

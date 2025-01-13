@@ -1,177 +1,96 @@
 <template>
-  <NuxtLayout name="seo">
-    <div class="max-w-5xl mx-auto p-6">
-      <!-- Header Section -->
-      <div class="mb-8">
-        <h1 class="text-3xl font-bold mb-2 text-gray-900 dark:text-white">SEO Assistant</h1>
-        <p class="text-gray-600 dark:text-gray-400">
-          Get instant SEO advice and recommendations powered by AI
-        </p>
-      </div>
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto p-6">
+      <h1 class="text-4xl font-extrabold mb-4 text-center">Ask Me Anything About SEO</h1>
+      <p class="text-center text-lg text-gray-600 dark:text-gray-400">
+        On Page, Off Page, SEO Coding, Search Trends, We Do All The Hard Work For You
+      </p>
+    </header>
 
-      <!-- Chat Interface -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-        <!-- Messages Area -->
-        <div class="h-[calc(100vh-20rem)] overflow-y-auto p-6 space-y-6">
-          <!-- Welcome Message -->
-          <div class="flex items-start space-x-3">
-            <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-              <SparklesIcon class="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            </div>
-            <div class="flex-1">
-              <div class="bg-gray-100 dark:bg-gray-700/50 rounded-lg p-4 max-w-3xl">
-                <p class="text-gray-800 dark:text-gray-200 mb-4">
-                  Hi! I'm your SEO assistant. I can help you with:
-                </p>
-                <div class="grid grid-cols-2 gap-4">
-                  <div v-for="(feature, index) in features" :key="index"
-                       class="flex items-start space-x-2">
-                    <component :is="feature.icon" 
-                             class="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                    <span class="text-gray-700 dark:text-gray-300">{{ feature.text }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Chat Messages -->
-          <template v-for="message in messages" :key="message.id">
-            <!-- AI Message -->
-            <div v-if="message.type === 'ai'" class="flex items-start space-x-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                <SparklesIcon class="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div class="flex-1">
-                <div class="bg-gray-100 dark:bg-gray-700/50 rounded-lg p-4 max-w-3xl">
-                  <p class="text-gray-800 dark:text-gray-200">{{ message.content }}</p>
-                </div>
-                <div v-if="message.tips?.length" class="mt-3 space-y-2">
-                  <div v-for="(tip, index) in message.tips" :key="index"
-                       class="flex items-start space-x-2 text-sm">
-                    <LightBulbIcon class="w-4 h-4 text-yellow-500 dark:text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <span class="text-gray-600 dark:text-gray-400">{{ tip }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- User Message -->
-            <div v-else class="flex items-start justify-end space-x-3">
-              <div class="flex-1 flex justify-end">
-                <div class="bg-blue-600 dark:bg-blue-500 text-white rounded-lg p-4 max-w-3xl">
-                  <p>{{ message.content }}</p>
-                </div>
-              </div>
-              <div class="w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0">
-                <UserIcon class="w-6 h-6 text-gray-600 dark:text-gray-400" />
-              </div>
-            </div>
-          </template>
-
-          <!-- Typing Indicator -->
-          <div v-if="isTyping" class="flex items-center space-x-2">
-            <div class="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce"></div>
-            <div class="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style="animation-delay: 0.2s"></div>
-            <div class="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style="animation-delay: 0.4s"></div>
-          </div>
-        </div>
-
-        <!-- Input Area -->
-        <div class="border-t dark:border-gray-700 p-4">
-          <form @submit.prevent="sendMessage" class="flex space-x-4">
-            <UTextarea
-              v-model="userInput"
-              :rows="1"
-              class="flex-1 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:placeholder-gray-400"
-              placeholder="Ask me anything about SEO..."
-              @keydown.enter.exact.prevent="sendMessage"
-            />
-            <UButton
-              :loading="isTyping"
-              :disabled="!userInput.trim()"
-              @click="sendMessage"
-              color="blue"
-              variant="solid"
-              class="dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white"
-            >
-              <template #leading>
-                <PaperAirplaneIcon class="h-4 w-4" />
-              </template>
-              Send
-            </UButton>
-          </form>
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto p-6 space-y-8">
+      <!-- Search Input Section -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <textarea
+          v-model="userInput"
+          class="w-full h-16 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 p-4"
+          placeholder="Need help? Ask me anything..."
+        ></textarea>
+        <div class="flex justify-end mt-4">
+          <button
+            class="bg-blue-600 dark:bg-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600"
+            @click="sendMessage"
+          >
+            Send
+          </button>
         </div>
       </div>
-    </div>
-  </NuxtLayout>
+
+      <!-- Suggested Actions -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+        <button
+          v-for="(action, index) in actions"
+          :key="index"
+          class="bg-gray-100 dark:bg-gray-800 rounded-lg shadow p-4 hover:shadow-lg transition"
+        >
+          {{ action }}
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center text-gray-500 dark:text-gray-400">
+        <p>Start building your SEO into your code</p>
+        <div class="flex justify-center mt-4 space-x-4">
+          <div
+            v-for="(icon, index) in techIcons"
+            :key="index"
+            class="bg-gray-200 dark:bg-gray-700 rounded-full p-2"
+          >
+            <component :is="icon" class="w-8 h-8 text-gray-600 dark:text-gray-300"></component>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { 
-  SparklesIcon, 
-  UserIcon, 
-  LightBulbIcon, 
-  PaperAirplaneIcon,
+import { ref } from "vue";
+import {
   MagnifyingGlassIcon,
   ChartBarIcon,
   LinkIcon,
-  DocumentTextIcon,
-  ClipboardDocumentCheckIcon
-} from '@heroicons/vue/24/outline'
+  ClipboardDocumentCheckIcon,
+} from "@heroicons/vue/24/solid";
 
-const userInput = ref('')
-const isTyping = ref(false)
+const userInput = ref("");
 
-const features = [
-  { icon: MagnifyingGlassIcon, text: 'Keyword Research & Analysis' },
-  { icon: ChartBarIcon, text: 'Performance Tracking' },
-  { icon: LinkIcon, text: 'Link Building Strategy' },
-  { icon: DocumentTextIcon, text: 'Content Optimization' },
-  { icon: ClipboardDocumentCheckIcon, text: 'Technical SEO Audits' }
-]
+const actions = [
+  "Scan My Websites For Keywords",
+  "Update keywords based on Google trends",
+  "Update my SEO in code",
+  "What keywords is [competitor] ranking for?",
+  "Improve on-page SEO for URL",
+  "Strategies competitors use for ranking",
+];
 
-const messages = ref([])
+const techIcons = [
+  MagnifyingGlassIcon,
+  ChartBarIcon,
+  LinkIcon,
+  ClipboardDocumentCheckIcon,
+];
 
-const sendMessage = async () => {
-  if (!userInput.value.trim()) return
-
-  // Add user message
-  messages.value.push({
-    id: Date.now(),
-    type: 'user',
-    content: userInput.value
-  })
-
-  const message = userInput.value
-  userInput.value = ''
-
-  isTyping.value = true
-
-  try {
-    await new Promise(resolve => setTimeout(resolve, 1500))
-
-    messages.value.push({
-      id: Date.now(),
-      type: 'ai',
-      content: `Here are some recommendations for "${message}":`,
-      tips: [
-        'Optimize your meta titles and descriptions',
-        'Ensure proper heading structure (H1, H2, H3)',
-        'Improve internal linking structure',
-        'Create high-quality, relevant content',
-        'Monitor and improve Core Web Vitals'
-      ]
-    })
-  } catch (error) {
-    console.error('Error:', error)
-  } finally {
-    isTyping.value = false
-  }
-}
-
-definePageMeta({
-  layout: false
-})
+const sendMessage = () => {
+  if (!userInput.value.trim()) return;
+  alert(`Your query: ${userInput.value}`);
+  userInput.value = "";
+};
 </script>
+
+<style>
+body {
+  font-family: "Inter", sans-serif;
+}
+</style>

@@ -1,0 +1,293 @@
+openapi: 3.0.0
+info:
+  title: Repo-Booster API
+  description: API documentation for Repo-Booster SEO analytics platform
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@repo-booster.com
+servers:
+  - url: https://api.repo-booster.com/v1
+    description: Production server
+  - url: http://localhost:3000/api/v1
+    description: Development server
+security:
+  - bearerAuth: []
+paths:
+  /seo-assistant:
+    post:
+      tags:
+        - SEO Assistant
+      summary: Generate SEO suggestions
+      description: Use AI-powered tools to generate SEO recommendations for content optimization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: Content to optimize
+                target_keywords:
+                  type: array
+                  items:
+                    type: string
+                  description: Target keywords for optimization
+              required:
+                - content
+                - target_keywords
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeoAssistantResponse'
+  /domain/overview:
+    get:
+      tags:
+        - Domain Overview
+      summary: Get domain overview
+      description: Retrieve comprehensive analysis of a domain's SEO performance
+      parameters:
+        - name: domain
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Domain to analyze
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainOverviewResponse'
+  /link-building:
+    post:
+      tags:
+        - Link Building
+      summary: Generate link-building opportunities
+      description: Suggest potential websites for link-building campaigns
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domain:
+                  type: string
+                  description: Your domain for link-building suggestions
+              required:
+                - domain
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkBuildingResponse'
+  /market/explorer:
+    get:
+      tags:
+        - Market Explorer
+      summary: Explore market trends
+      description: Retrieve market insights and competitor analysis for a niche or industry
+      parameters:
+        - name: industry
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Industry or niche to explore
+      responses:
+        '200':
+          description: Market data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketExplorerResponse'
+  /keyword/research:
+    get:
+      tags:
+        - Keyword Research
+      summary: Research keywords
+      description: Analyze keywords and retrieve metrics such as search volume, difficulty, and CPC
+      parameters:
+        - name: keywords
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Keywords to analyze (comma-separated)
+      responses:
+        '200':
+          description: Keyword data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordResearchResponse'
+  /keyword/magic:
+    get:
+      tags:
+        - Keyword Magic Tool
+      summary: Get keyword suggestions
+      description: Generate keyword suggestions and related phrases for SEO campaigns
+      parameters:
+        - name: seed_keyword
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Base keyword to generate suggestions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordMagicResponse'
+  /on-page-seo:
+    post:
+      tags:
+        - On-Page SEO
+      summary: Analyze on-page SEO
+      description: Perform an in-depth analysis of on-page SEO elements for a URL
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: URL to analyze
+              required:
+                - url
+      responses:
+        '200':
+          description: On-page SEO results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnPageSeoResponse'
+  /backlink-tools/analyze:
+    post:
+      tags:
+        - Backlink Tools
+      summary: Analyze backlinks
+      description: Retrieve backlink data for a domain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domain:
+                  type: string
+                  description: Domain to analyze
+              required:
+                - domain
+      responses:
+        '200':
+          description: Backlink analysis
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BacklinkToolsResponse'
+  /local-seo/listings:
+    get:
+      tags:
+        - Local SEO
+      summary: Get local business listings
+      description: Retrieve local business listings for a specific area
+      parameters:
+        - name: location
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Location to retrieve business listings
+      responses:
+        '200':
+          description: Listings data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalSeoResponse'
+  /site-audit:
+    post:
+      tags:
+        - Site Audit
+      summary: Perform a site audit
+      description: Analyze technical SEO issues and recommendations for a domain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domain:
+                  type: string
+                  description: Domain to audit
+              required:
+                - domain
+      responses:
+        '200':
+          description: Audit results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteAuditResponse'
+  /website-performance:
+    get:
+      tags:
+        - Website Performance
+      summary: Analyze website performance
+      description: Get detailed insights on website speed, load times, and user experience
+      parameters:
+        - name: url
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Website URL to analyze
+      responses:
+        '200':
+          description: Performance data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebsitePerformanceResponse'
+components:
+  schemas:
+    SeoAssistantResponse:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            type: string
+            description: SEO suggestions
+    LinkBuildingResponse:
+      type: object
+      properties:
+        opportunities:
+          type: array
+          items:
+            type: string
+            description: Suggested link-building opportunities
+    MarketExplorerResponse:
+      type: object
+      properties:
+        trends:
+          type: array
+          items:
+            type: string
+            description: Market trends and insights

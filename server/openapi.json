@@ -1,0 +1,255 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Repo-Booster API",
+      "description": "API documentation for Repo-Booster SEO analytics platform",
+      "version": "1.0.0",
+      "contact": {
+        "name": "API Support",
+        "email": "support@repo-booster.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://api.repo-booster.com/v1",
+        "description": "Production server"
+      },
+      {
+        "url": "http://localhost:3000/api/v1",
+        "description": "Development server"
+      }
+    ],
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "paths": {
+      "/domain/overview": {
+        "get": {
+          "tags": ["Domain Analysis"],
+          "summary": "Get domain overview",
+          "description": "Retrieve comprehensive analysis of a domain's SEO performance",
+          "parameters": [
+            {
+              "name": "domain",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Domain to analyze"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DomainOverviewResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/keywords/research": {
+        "get": {
+          "tags": ["Keyword Analysis"],
+          "summary": "Research keywords",
+          "description": "Analyze keywords and get detailed metrics",
+          "parameters": [
+            {
+              "name": "keywords",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Keywords to analyze (comma-separated)"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/KeywordResearchResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/backlinks/analyze": {
+        "post": {
+          "tags": ["Backlink Analysis"],
+          "summary": "Analyze backlinks",
+          "description": "Get detailed backlink analysis for a domain",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": {
+                      "type": "string",
+                      "description": "Domain to analyze"
+                    }
+                  },
+                  "required": ["domain"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/BacklinkAnalysisResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "DomainOverviewResponse": {
+          "type": "object",
+          "properties": {
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "authority": {
+                  "type": "object",
+                  "properties": {
+                    "score": {
+                      "type": "number",
+                      "description": "Domain authority score"
+                    },
+                    "trend": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "description": "Historical trend of authority scores"
+                    }
+                  }
+                },
+                "traffic": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Total monthly visits"
+                    },
+                    "organic": {
+                      "type": "number",
+                      "description": "Organic traffic"
+                    },
+                    "paid": {
+                      "type": "number",
+                      "description": "Paid traffic"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "KeywordResearchResponse": {
+          "type": "object",
+          "properties": {
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  },
+                  "search_volume": {
+                    "type": "number"
+                  },
+                  "difficulty": {
+                    "type": "number"
+                  },
+                  "intent": {
+                    "type": "string",
+                    "enum": ["informational", "navigational", "commercial", "transactional"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "BacklinkAnalysisResponse": {
+          "type": "object",
+          "properties": {
+            "total_backlinks": {
+              "type": "number"
+            },
+            "referring_domains": {
+              "type": "number"
+            },
+            "domain_authority": {
+              "type": "number"
+            }
+          }
+        },
+        "Error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Domain Analysis",
+        "description": "Endpoints for analyzing domains"
+      },
+      {
+        "name": "Keyword Analysis",
+        "description": "Endpoints for keyword research and analysis"
+      },
+      {
+        "name": "Backlink Analysis",
+        "description": "Endpoints for analyzing backlinks"
+      }
+    ]
+  }
