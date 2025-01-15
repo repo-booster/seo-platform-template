@@ -24,8 +24,8 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2
       '@iconify-json/simple-icons':
-        specifier: ^1.2.19
-        version: 1.2.19
+        specifier: ^1.2.20
+        version: 1.2.20
       '@nuxt/devtools':
         specifier: ^1.7.0
         version: 1.7.0(rollup@4.30.1)(vite@5.4.11(@types/node@22.10.5)(terser@5.37.0))(vue@3.5.13(typescript@5.7.2))
@@ -650,8 +650,8 @@ packages:
   '@iconify-json/lucide@1.2.22':
     resolution: {integrity: sha512-sHRN/UFVTPTKCA9dVdO34OydvAf5d3CmT16a/U2+VzogI1uIsBXoYILU5oHGFMMq12aMJ65zgr1YOJCI0glxeg==}
 
-  '@iconify-json/simple-icons@1.2.19':
-    resolution: {integrity: sha512-5ntmhLBUEKiakX3quPPXft+WfXIVfDINzTm3djZzzewah9ACxsCVaxoa4QVxlW8PMoF8jndXOqyHYZGCxwxoZw==}
+  '@iconify-json/simple-icons@1.2.20':
+    resolution: {integrity: sha512-WlQ95zrdxxizrFt2HtkfYjyWatLfE8Z7BKOkew9quG5S5AKYVxF1PkTtOs8LDWShce1DpvxKWQne4W5DQyEGZg==}
 
   '@iconify/collections@1.0.504':
     resolution: {integrity: sha512-ve+ERB4VKIDIieZEOFfcR9OP7Q3PybyDPe0XZrCsWr8PExzlj3F599ZD/x+CU/xl76EZImPlNsjfWYo6XbD2Kw==}
@@ -4976,7 +4976,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.19':
+  '@iconify-json/simple-icons@1.2.20':
     dependencies:
       '@iconify/types': 2.0.0
 
