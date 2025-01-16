@@ -72,8 +72,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(magicast@0.3.5)(rollup@4.30.1)(vue@3.5.13(typescript@5.7.2))
       openai:
-        specifier: ^4.77.4
-        version: 4.77.4
+        specifier: ^4.78.1
+        version: 4.78.1
       pinia:
         specifier: ^2.3.0
         version: 2.3.0(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
@@ -3228,8 +3228,8 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openai@4.77.4:
-    resolution: {integrity: sha512-rShjKsZ/HXm1cSxXt6iFeZxiCohrVShawt0aRRQmbb+z/EXcH4OouyQZP1ShyZMb63LJajpl8aGw3DzEi8Wh9Q==}
+  openai@4.78.1:
+    resolution: {integrity: sha512-drt0lHZBd2lMyORckOXFPQTmnGLWSLt8VK0W9BhOKWpMFBEoHMoz5gxMPmVq5icp+sOrsbMnsmZTVHUlKvD1Ow==}
     hasBin: true
     peerDependencies:
       zod: ^3.23.8
@@ -8407,7 +8407,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openai@4.77.4:
+  openai@4.78.1:
     dependencies:
       '@types/node': 18.19.70
       '@types/node-fetch': 2.6.12
