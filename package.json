@@ -33,7 +33,7 @@
     "openai": "^4.77.4",
     "pinia": "^2.3.0",
     "postcss": "^8.5.1",
-    "tailwind-scrollbar": "^3.1.0",
+    "tailwind-scrollbar": "^4.0.0",
     "tailwindcss": "^3.4.17",
     "vue-chartjs": "^5.3.2"
   },
