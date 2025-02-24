@@ -31,7 +31,7 @@
     "nuxt-link-checker": "^4.0.4",
     "nuxt-lucide-icons": "^1.0.5",
     "openai": "^4.77.4",
-    "pinia": "^2.3.0",
+    "pinia": "^3.0.1",
     "postcss": "^8.5.1",
     "tailwind-scrollbar": "^3.1.0",
     "tailwindcss": "^3.4.17",
