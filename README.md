@@ -1,21 +1,21 @@
 <div align="center">
 
-# Repo-Booster Seo Dashboard Template
+# Seo Landing Page & Dashboard Full Template
 
 <div align="center">
 
 ![Landing](https://github.com/user-attachments/assets/9eccaa4d-b283-4e69-bfa4-f889cfe2d0bd)
 ---
   <a href="https://app.repo-booster.com">
-    <img src="https://img.shields.io/badge/Website-Repo%20Booster-18181B?style=flat&logo=google-chrome&logoColor=28CF8D&colorB=28CF8D" alt="Website">
+    <img src="https://img.shields.io/badge/Website-DeepRank%20AI-18181B?style=flat&logo=google-chrome&logoColor=28CF8D&colorB=28CF8D" alt="Website">
   </a>
 
   <a href="https://docs.repo-booster.com">
-    <img src="https://img.shields.io/badge/Docs-Repo%20Booster-18181B?style=flat&logo=readthedocs&logoColor=28CF8D&colorB=28CF8D" alt="Docs">
+    <img src="https://img.shields.io/badge/Docs-DeepRank%20AI-18181B?style=flat&logo=readthedocs&logoColor=28CF8D&colorB=28CF8D" alt="Docs">
   </a>
 
   <a href="https://status.repo-booster.com">
-    <img src="https://img.shields.io/badge/Status-Repo%20Booster-18181B?style=flat&logo=check-mark&logoColor=28CF8D&colorB=28CF8D" alt="Status">
+    <img src="https://img.shields.io/badge/Status-DeepRank%20AI-18181B?style=flat&logo=check-mark&logoColor=28CF8D&colorB=28CF8D" alt="Status">
   </a>
 </div>
 
@@ -52,11 +52,11 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/repo-booster/repo-booster-seo.git
+   git clone https://github.com/repo-booster/seo-platform-template.git
    ```
 2. Navigate into the project directory:
    ```bash
-   cd repo-booster
+   cd seo-platform-template
    ```
 3. Install dependencies:
    ```bash
@@ -73,42 +73,10 @@
 
 ---
 
-## ⚙️ Configuration
-
-### Sitemap
-The dynamic sitemap is generated using the `sitemap` package and includes all routes from the project.
-
-To update the sitemap, modify `routes/sitemap.xml.ts`:
-```typescript
-import { SitemapStream, streamToPromise } from 'sitemap';
-```
-
-### SEO Middleware
-SEO metadata is managed in `plugins/seo.ts` with route-based meta tags.
-
-To add or update metadata:
-```typescript
-{
-  '/new-route': {
-    title: 'New Route Title',
-    description: 'Description for the new route.'
-  }
-}
-```
-
----
 
 ## 🛡️ License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 📧 Contact
-
-For support, feedback, or inquiries, please reach out to us:
-- Email: support@repo-booster.com
-- Website: [Repo-Booster](https://app.repo-booster.com)
 
 ---
 
