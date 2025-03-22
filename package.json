@@ -38,7 +38,7 @@
     "vue-chartjs": "^5.3.2"
   },
   "resolutions": {
-    "nuxt": "3.14.1592"
+    "nuxt": "3.16.0"
   },
   "packageManager": "pnpm@9.15.1",
   "devDependencies": {
